@@ -6,71 +6,15 @@
 <title>CHACHA ELECTRON</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f6f9;
-}
-
-#storePage{
-display:none;
-}
-
-.auth-container{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#003366,#0077ff);
-padding:20px;
-}
-
-.auth-box{
-background:white;
-width:450px;
-padding:25px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,.2);
-}
-
-.auth-box h1{
-text-align:center;
-color:#003366;
-margin-bottom:20px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-border:1px solid #ddd;
-border-radius:8px;
-}
-
-button{
-width:100%;
-padding:12px;
-border:none;
-background:#0077ff;
-color:white;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-}
-
-button:hover{
-background:#0056cc;
-}
-
-#passwordStrength{
-font-weight:bold;
-margin-bottom:10px;
+background:#f5f5f5;
 }
 
 header{
@@ -80,170 +24,187 @@ padding:20px;
 text-align:center;
 }
 
-.search-bar{
+.container{
 padding:20px;
-text-align:center;
 }
 
-.search-bar input{
-width:90%;
-max-width:600px;
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+max-width:500px;
+margin:30px auto;
 }
 
-.categories{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-margin-bottom:20px;
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ddd;
+border-radius:5px;
 }
 
-.categories button{
-width:auto;
-padding:10px 20px;
+button{
+padding:12px;
+border:none;
+background:#0066ff;
+color:white;
+cursor:pointer;
+border-radius:5px;
+width:100%;
+}
+
+button:hover{
+background:#0044cc;
+}
+
+#store{
+display:none;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-padding:20px;
+margin-top:20px;
 }
 
 .product{
 background:white;
+padding:15px;
 border-radius:10px;
-overflow:hidden;
-box-shadow:0 3px 15px rgba(0,0,0,.1);
+box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
 .product img{
 width:100%;
-height:220px;
+height:180px;
 object-fit:cover;
-}
-
-.product-content{
-padding:15px;
-text-align:center;
+border-radius:8px;
 }
 
 .price{
 color:green;
-font-size:20px;
 font-weight:bold;
+font-size:20px;
 margin:10px 0;
 }
 
 .cart{
 background:white;
-margin:20px;
 padding:20px;
+margin-top:20px;
 border-radius:10px;
 }
 
-footer{
+.category{
+margin-top:15px;
+}
+
+.contact{
 background:#111;
 color:white;
 text-align:center;
 padding:20px;
-margin-top:20px;
+margin-top:30px;
 }
 
-footer a{
-color:white;
+.contact a{
+color:#25D366;
 margin:10px;
 text-decoration:none;
 }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-text-decoration:none;
+#strength{
+font-weight:bold;
 }
 
+.search{
+padding:15px;
+background:white;
+margin-top:10px;
+border-radius:10px;
+}
+
+.forgot{
+color:#0066ff;
+cursor:pointer;
+display:block;
+margin-top:10px;
+}
 </style>
 </head>
-
 <body>
-
-<div id="authContainer" class="auth-container">
-
-<div class="auth-box">
-
-<h1>CHACHA ELECTRON</h1>
-
-<h3>Registration</h3>
-
-<input id="fullname" placeholder="Full Names">
-
-<input id="idnumber" placeholder="ID Number">
-
-<input id="phone" placeholder="Phone Number">
-
-<input id="county" placeholder="County">
-
-<input id="town" placeholder="Town">
-
-<input id="estate" placeholder="Estate">
-
-<input id="landmark" placeholder="Landmark">
-
-<input
-type="password"
-id="password"
-placeholder="Strong Password">
-
-<div id="passwordStrength"></div>
-
-<input
-type="password"
-id="confirmPassword"
-placeholder="Confirm Password">
-
-<button onclick="registerUser()">
-Register
-</button>
-
-<hr style="margin:20px 0">
-
-<h3>Login</h3>
-
-<input
-id="loginId"
-placeholder="ID Number">
-
-<input
-type="password"
-id="loginPassword"
-placeholder="Password">
-
-<button onclick="loginUser()">
-Login
-</button>
-
-</div>
-
-</div>
-
-<div id="storePage">
 
 <header>
 <h1>CHACHA ELECTRON</h1>
-<p>Electronics Store</p>
+<p>Electronics Store - East Africa</p>
 </header>
 
-<div class="search-bar">
+<div id="auth">
+
+<div class="card">
+
+<h2>Create Account</h2>
+
+<input type="text" id="fullname" placeholder="Full Names">
+
+<input type="text" id="idnumber" placeholder="ID Number">
+
+<input type="email" id="email" placeholder="Email Address">
+
+<input type="text" id="phone" placeholder="Phone Number">
+
+<select id="country">
+<option value="">Select Country</option>
+<option>Kenya</option>
+<option>Uganda</option>
+<option>Tanzania</option>
+<option>Rwanda</option>
+<option>Burundi</option>
+<option>South Sudan</option>
+<option>Ethiopia</option>
+<option>Somalia</option>
+<option>Djibouti</option>
+<option>Eritrea</option>
+</select>
+
+<input type="text" id="county" placeholder="County / State">
+
+<input type="text" id="town" placeholder="Town / City">
+
+<input type="password" id="password" placeholder="Password">
+
+<div id="strength"></div>
+
+<input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+<button onclick="registerUser()">Register</button>
+
+<hr style="margin:20px 0">
+
+<h2>Login</h2>
+
+<input type="text" id="loginId" placeholder="ID Number">
+
+<input type="password" id="loginPassword" placeholder="Password">
+
+<button onclick="loginUser()">Login</button>
+
+<span class="forgot" onclick="forgotPassword()">
+Forgot Password?
+</span>
+
+</div>
+
+</div>
+
+<div id="store">
+
+<div class="container">
+
+<div class="search">
 
 <input
 type="text"
@@ -253,343 +214,335 @@ onkeyup="searchProducts()">
 
 </div>
 
-<div class="categories">
+<div class="category">
 
-<button onclick="filterCategory('all')">
-All
-</button>
+<select id="categoryFilter" onchange="filterProducts()">
 
-<button onclick="filterCategory('phones')">
-Phones
-</button>
+<option value="all">All Categories</option>
 
-<button onclick="filterCategory('laptops')">
-Laptops
-</button>
+<option value="phone">Phones</option>
 
-<button onclick="filterCategory('tv')">
-TV
-</button>
+<option value="laptop">Laptops</option>
 
-<button onclick="filterCategory('gaming')">
-Gaming
-</button>
+<option value="tv">TVs</option>
+
+<option value="headphone">Headphones</option>
+
+<option value="earphone">Earphones</option>
+
+<option value="cable">Cables</option>
+
+</select>
 
 </div>
 
-<div class="products">
-
-<div class="product phones">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800">
-<div class="product-content">
-<h3>Samsung Galaxy</h3>
-<div class="price">KES 25000</div>
-<button onclick="addToCart('Samsung Galaxy',25000)">
-Add To Cart
-</button>
-</div>
-</div>
-
-<div class="product laptops">
-<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800">
-<div class="product-content">
-<h3>HP Laptop</h3>
-<div class="price">KES 65000</div>
-<button onclick="addToCart('HP Laptop',65000)">
-Add To Cart
-</button>
-</div>
-</div>
-
-<div class="product tv">
-<img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800">
-<div class="product-content">
-<h3>Smart TV</h3>
-<div class="price">KES 45000</div>
-<button onclick="addToCart('Smart TV',45000)">
-Add To Cart
-</button>
-</div>
-</div>
-
-<div class="product gaming">
-<img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800">
-<div class="product-content">
-<h3>PlayStation 5</h3>
-<div class="price">KES 85000</div>
-<button onclick="addToCart('PS5',85000)">
-Add To Cart
-</button>
-</div>
-</div>
-
-</div>
+<div class="products" id="products"></div>
 
 <div class="cart">
 
-<h2>
-Cart (<span id="count">0</span>)
-</h2>
+<h2>Shopping Cart</h2>
 
 <ul id="cartItems"></ul>
 
-<h3>
-Total: KES <span id="total">0</span>
-</h3>
+<h3>Total: KES <span id="total">0</span></h3>
 
 <button onclick="checkout()">
-Checkout via M-Pesa
+Pay With M-Pesa
 </button>
 
 </div>
 
-<footer>
+</div>
 
-<h3>CHACHA ELECTRON</h3>
+<div class="contact">
 
-<p>Business Number: 0799446312</p>
+<h2>CHACHA ELECTRON</h2>
 
-<a href="tel:0799446312">
-📞 Call
-</a>
+<p>M-Pesa Number: 0799446312</p>
 
-<a href="sms:0799446312">
-📩 SMS
-</a>
+<a href="tel:0799446312">📞 Call</a>
 
-<a
-href="https://wa.me/254799446312"
-target="_blank">
+<a href="sms:0799446312">📩 SMS</a>
+
+<a href="https://wa.me/254799446312" target="_blank">
 💬 WhatsApp
 </a>
 
-</footer>
+</div>
 
 </div>
 
-<a
-class="whatsapp"
-href="https://wa.me/254799446312"
-target="_blank">
-💬
-</a>
-
 <script>
 
-const passwordInput =
-document.getElementById("password");
+let total = 0;
 
-passwordInput.addEventListener(
-"keyup",
-checkStrength
-);
+let products = [
 
-function checkStrength(){
+{
+name:"Samsung Galaxy S24 Ultra",
+category:"phone",
+price:185000,
+img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
+},
 
-const password =
-passwordInput.value;
+{
+name:"iPhone 15 Pro Max",
+category:"phone",
+price:215000,
+img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800"
+},
 
-let strength=0;
+{
+name:"HP EliteBook",
+category:"laptop",
+price:95000,
+img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800"
+},
 
-if(password.length>=8) strength++;
-if(/[A-Z]/.test(password)) strength++;
-if(/[a-z]/.test(password)) strength++;
-if(/[0-9]/.test(password)) strength++;
-if(/[!@#$%^&*]/.test(password)) strength++;
+{
+name:"Dell Latitude",
+category:"laptop",
+price:85000,
+img:"https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=800"
+},
 
-const box =
-document.getElementById(
-"passwordStrength"
-);
+{
+name:"Samsung 55 Smart TV",
+category:"tv",
+price:92000,
+img:"https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800"
+},
 
-if(strength<5){
+{
+name:"LG OLED TV",
+category:"tv",
+price:150000,
+img:"https://images.unsplash.com/photo-1461151304267-38535e780c79?w=800"
+},
 
-box.innerHTML =
+{
+name:"Sony WH-1000XM5",
+category:"headphone",
+price:45000,
+img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
+},
+
+{
+name:"Apple AirPods Pro",
+category:"earphone",
+price:32000,
+img:"https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800"
+},
+
+{
+name:"HDMI Cable 5M",
+category:"cable",
+price:1200,
+img:"https://images.unsplash.com/photo-1580894908361-967195033215?w=800"
+}
+
+];
+
+function renderProducts(list){
+
+let html="";
+
+list.forEach(product=>{
+
+html += `
+<div class="product">
+
+<img src="${product.img}">
+
+<h3>${product.name}</h3>
+
+<p class="price">
+KES ${product.price.toLocaleString()}
+</p>
+
+<button onclick="
+addToCart('${product.name}',
+${product.price})">
+Add To Cart
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("products").innerHTML=html;
+
+}
+
+renderProducts(products);
+
+document.getElementById("password")
+.addEventListener("keyup",function(){
+
+let value=this.value;
+
+const strong =
+/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+document.getElementById("strength")
+.innerHTML =
+strong.test(value)
+?
+"🟢 Strong Password"
+:
 "🔴 Weak Password";
 
-box.style.color="red";
-
-}else{
-
-box.innerHTML =
-"🟢 Strong Password";
-
-box.style.color="green";
-
-}
-
-}
+});
 
 function registerUser(){
 
 const strong =
 /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-let password =
-document.getElementById(
-"password"
-).value;
+let password=
+document.getElementById("password").value;
 
-let confirm =
-document.getElementById(
-"confirmPassword"
-).value;
+let confirm=
+document.getElementById("confirmPassword").value;
 
 if(!strong.test(password)){
-
-alert(
-"Password must contain uppercase, lowercase, number and special character."
-);
-
+alert("Use a strong password.");
 return;
-
 }
 
 if(password!==confirm){
-
-alert(
-"Passwords do not match."
-);
-
+alert("Passwords do not match.");
 return;
-
 }
 
 localStorage.setItem(
-"id",
-document.getElementById(
-"idnumber"
-).value
+"userId",
+document.getElementById("idnumber").value
 );
 
 localStorage.setItem(
-"pass",
+"userPassword",
 password
 );
 
-alert(
-"Registration successful."
-);
+alert("Registration successful.");
 
 }
 
 function loginUser(){
 
+let id=
+document.getElementById("loginId").value;
+
+let pass=
+document.getElementById("loginPassword").value;
+
 if(
-document.getElementById("loginId")
-.value===localStorage.getItem("id")
+id===localStorage.getItem("userId")
 &&
-document.getElementById(
-"loginPassword"
-).value===localStorage.getItem("pass")
+pass===localStorage.getItem("userPassword")
 ){
 
-document.getElementById(
-"authContainer"
-).style.display="none";
-
-document.getElementById(
-"storePage"
-).style.display="block";
+document.getElementById("auth").style.display="none";
+document.getElementById("store").style.display="block";
 
 }else{
-
 alert("Invalid login");
-
 }
 
 }
 
-let total=0;
-let count=0;
+function forgotPassword(){
+
+let newPassword =
+prompt(
+"Enter your new password"
+);
+
+if(newPassword){
+
+localStorage.setItem(
+"userPassword",
+newPassword
+);
+
+alert(
+"Password reset successfully."
+);
+
+}
+
+}
 
 function addToCart(name,price){
 
-count++;
-total+=price;
-
-document.getElementById(
-"count"
-).innerHTML=count;
-
-document.getElementById(
-"total"
-).innerHTML=total;
-
-let li=
+let li =
 document.createElement("li");
 
-li.innerHTML=
+li.innerHTML =
 name+" - KES "+price;
 
-document.getElementById(
-"cartItems"
-).appendChild(li);
+document.getElementById("cartItems")
+.appendChild(li);
 
-}
+total += price;
 
-function searchProducts(){
-
-let search=
-document.getElementById("search")
-.value.toLowerCase();
-
-document
-.querySelectorAll(".product")
-.forEach(product=>{
-
-let title=
-product.querySelector("h3")
-.innerText.toLowerCase();
-
-product.style.display=
-title.includes(search)
-? "block"
-: "none";
-
-});
-
-}
-
-function filterCategory(category){
-
-document
-.querySelectorAll(".product")
-.forEach(product=>{
-
-if(
-category==="all" ||
-product.classList.contains(category)
-){
-
-product.style.display="block";
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
+document.getElementById("total")
+.innerHTML =
+total.toLocaleString();
 
 }
 
 function checkout(){
 
 alert(
-
 "CHACHA ELECTRON\n\n"+
-"Amount: KES "+total+
-"\n\n"+
-"Use M-Pesa Number:\n"+
+"Send Payment To:\n"+
 "0799446312\n\n"+
-"For real automatic STK Push, connect your Daraja API backend."
-
+"Amount: KES "+
+total.toLocaleString()
 );
 
 window.open(
 "https://wa.me/254799446312",
 "_blank"
+);
+
+}
+
+function searchProducts(){
+
+let search =
+document.getElementById("search")
+.value.toLowerCase();
+
+let filtered =
+products.filter(p=>
+p.name.toLowerCase()
+.includes(search)
+);
+
+renderProducts(filtered);
+
+}
+
+function filterProducts(){
+
+let cat=
+document.getElementById(
+"categoryFilter"
+).value;
+
+if(cat==="all"){
+renderProducts(products);
+return;
+}
+
+renderProducts(
+products.filter(
+p=>p.category===cat
+)
 );
 
 }
